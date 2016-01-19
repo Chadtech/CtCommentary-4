@@ -1,0 +1,303 @@
+@font-face
+  font-family HFNSS
+  src url('HFNSS.ttf')
+
+standardSize    = 2em
+biggerSize      = 4em
+cellWidth       = 50px
+cellHeight      = 19px
+
+pointColor      = #c6c1a8
+unimportantText = #969d66
+
+importantText   = #dd3656
+importantTextG  = #78dd36
+importantTextD  = #ad366c
+
+ignorable       = #445244
+// backgroundColor = #040a0e
+backgroundColor = #080703
+totalBlack      = #060a00
+trackerBorder   = #21211a
+
+red             = #f20723
+  
+
+body
+  background  backgroundColor
+  padding     0
+  // padding-left  0
+  // padding-top   1em
+  margin        0
+
+.header
+  font-family             HFNSS
+  color                   pointColor
+  font-size               biggerSize
+  font-smooth             never
+  webkit-font-smoothing   none
+  -webkit-font-smoothing  none
+  margin                  0 
+
+.point
+  font-family             HFNSS
+  color                   pointColor
+  font-size               standardSize
+  font-smooth             never
+  webkit-font-smoothing   none
+  -webkit-font-smoothing  none
+  margin                  0 
+  
+.point-section
+  font-family             HFNSS
+  color                   pointColor
+  font-size               standardSize
+  font-smooth             never
+  webkit-font-smoothing   none
+  -webkit-font-smoothing  none
+  margin                  0 
+  width                   80%
+  height                  10em
+  background              none
+  outline                 none
+  webkit-font-smoothing   none
+  -webkit-font-smoothing  none
+  outline                 none
+
+
+.tracker
+  border-color  trackerBorder
+  border-style  solid
+  border-width  1px
+  width         700px
+  min-height    100%
+  margin        7px
+  padding       1px
+  float         left
+
+.list-right
+  padding     0
+  margin      0
+  box-sizing  border-box
+  width       cellWidth
+
+.list-right-Item 
+  content       ''
+  display       table
+  clear         both
+  width         cellWidth
+  height        12px
+  position      absolute
+  margin-top    2px
+  &.zero
+    margin-left 1px
+    left        0
+  &.one
+    left        cellWidth + 5
+  &.two
+    margin-left 6px
+    left        ((cellWidth) * 2) + 3
+  &.three
+    margin-left 6px
+    left        ((cellWidth) * 3) + 7
+
+
+.list-down
+  padding     0
+  margin      0
+  box-sizing  border-box
+  width       cellWidth
+
+.list-down-Item 
+  content       ''
+  display       table
+  clear         both
+  width         cellWidth
+  height        12px
+  position      absolute
+  margin-top    1px
+  &.zero
+    margin-left 1px
+  &.one
+    margin-left 1px
+    top         cellHeight + 1
+  &.two
+    margin-left 1px
+    top        ((cellHeight + 1) * 2)
+  &.three
+    margin-left 1px
+    top        ((cellHeight + 1) * 3)
+
+
+.container
+  padding 0
+  margin  0
+  box-sizing border-box
+  width 100%
+  // position relative
+
+
+.row  
+  content     ''
+  display     table
+  clear       both
+  width       100%
+  float       bottom
+  // min-height  1em
+  &.big
+    min-height    3em
+ 
+
+.column  
+  float         left 
+  margin-right  5px
+  position      relative
+  // width         cellWidth
+  // height        14px
+  
+
+.content 
+  margin    0
+  padding   0
+  width     100%
+  height    100%
+
+    
+buttonContent()
+  background-color        importantText
+  border-style            solid
+  border-width            1px
+  border-color            trackerBorder
+  font-family             HFNSS
+  color                   totalBlack
+  font-size               standardSize
+  font-smooth             never
+  webkit-font-smoothing   none
+  -webkit-font-smoothing  none
+  outline                 none
+  width                   1em
+  height                  1em
+  // top                     0
+  // left                    0
+  margin                  0
+
+
+.button
+
+
+  buttonContent()
+  position                absolute
+
+  top   2em
+  right 0
+  background-color            trackerBorder
+  &:hover
+    background-color  pointColor
+    border-color      pointColor
+
+  &.critical
+    background-color  red
+  &.null
+    background-color  backgroundColor
+    color             trackerBorder
+  &.G
+    &:hover
+      background-color  pointColor
+      border-color      pointColor
+    background-color    importantTextG
+  &.D
+    &:hover
+      background-color  pointColor
+      border-color      pointColor
+    background-color    importantTextD
+  
+  &.edit
+    position absolute
+    right    0
+    top      0
+    
+  &.add
+    // font-size biggerSize
+    margin-top 1em
+    position relative
+
+
+.nullButton
+  buttonContent()
+  position         absolute
+  right            0
+  // float            right
+  background-color ignorable
+  color            trackerBorder
+
+  
+cellContent()
+  top                     0
+  left                    0
+  position                absolute
+  margin                  0
+  background-color        totalBlack
+  border-style            solid
+  border-width            2px
+  border-color            trackerBorder
+  font-family             HFNSS
+  color                   pointColor
+  font-size               standardSize
+  font-smooth             never
+  webkit-font-smoothing   none
+  -webkit-font-smoothing  none
+  outline                 none
+  width                   100%
+  
+
+.dropright
+  margin-top              -3px
+  margin-left             -3px
+  padding-bottom          3px
+  z-index                 9
+  width                   218px
+  height                  14px
+  background-color        ignorable
+  position                fixed
+  border-style            solid
+  border-width            1px
+  border-color            trackerBorder
+
+  
+.dropdown
+  margin-top              -2px
+  margin-left             -2px
+  padding-bottom          3px
+  z-index                 9
+  width                   56px
+  height                  54px
+  background-color        ignorable
+  position                fixed
+  border-style            solid
+  border-width            1px
+  border-color            trackerBorder
+
+
+.cell
+  cellContent()
+  &:hover
+    border-color     pointColor
+  &.filled
+    background-color unimportantText
+    color            totalBlack
+  &.big
+    font-size biggerSize
+    width 800px
+
+
+.cellFilled
+  cellContent()
+  background-color  unimportantText
+  color             totalBlack
+  
+
+
+.TestDiv
+  margin-top  90px
+  margin-left 20px
+
