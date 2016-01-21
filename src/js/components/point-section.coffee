@@ -28,8 +28,39 @@ module.exports = PointSection = Himesama.createClass
       type:    type
     @setState paragraphs: paragraphs
 
+  moveUp: ->
+    { i } = @attributes
+    if i > 0
+      thisP = @state.paragraphs[ i ]
+      @state.paragraphs.splice i, 1
+      @state.paragraphs.splice i - 1, 0, thisP
+      @setState paragraphs: @state.paragraphs
+
+  moveDown: ->
+    { i } = @attributes
+    if @state.paragraphs.length - 1 > i
+      thisP = @state.paragraphs[ i ]
+      @state.paragraphs.splice i, 1
+      @state.paragraphs.splice i + 1, 0, thisP
+      @setState paragraphs: @state.paragraphs
+
+  setType: ->
+    { i, content, type } = @attributes
+    if type is 'normal' then type = 'logic'
+    else type = 'normal'
+    @state.paragraphs[i] = 
+      content: content
+      type:    type
+
+    @setState paragraphs: @state.paragraphs
+
+  remove: ->
+    { i, content, type } = @attributes
+    @state.paragraphs.splice i, 1
+    @setState paragraphs: @state.paragraphs
+
   render: ->
-    { content, active, i } = @attributes
+    { content, active, i, type } = @attributes
 
     buttonValue = 'E'
     buttonValue = 'S' if active
@@ -37,10 +68,13 @@ module.exports = PointSection = Himesama.createClass
     buttonAction = @setToEdit
     buttonAction = @setToSave if active
 
+    classAd = ''
+    classAd += ' logic' if type isnt 'normal'
+
     C = 
       if active
         textarea
-          className: 'point-section'
+          className: 'point-section' + classAd
           event:     input: @handle
           content
 
@@ -51,8 +85,10 @@ module.exports = PointSection = Himesama.createClass
               paragraph = 'nothing .. ' unless paragraph
               paragraph = '* ' + i + ' ' + paragraph
 
+            cl = 'point' + classAd
+
             [
-              p className: 'point', paragraph
+              p className: cl, paragraph
               br null
             ]
 
@@ -61,16 +97,43 @@ module.exports = PointSection = Himesama.createClass
 
         div
           style: 
-            marginLeft: '2em'
-            width:      '90%'
+            marginLeft:   '2em'
+            width:        '90%'
+            marginRight:  '0'
 
           C
-        
-        input
-          className: 'button edit'
-          type:      'submit'
-          value:     buttonValue
-          event:     click: buttonAction
+
+        div className: 'buttons-container',
+
+          input
+            className: 'button edit'
+            type:      'submit'
+            value:     buttonValue
+            event:     click: buttonAction
+
+          input
+            className: 'button edit'
+            type:      'submit'
+            value:     '^'
+            event:     click: @moveUp
+
+          input
+            className: 'button edit'
+            type:      'submit'
+            value:     'v'
+            event:     click: @moveDown
+
+          input
+            className: 'button edit'
+            type:      'submit'
+            value:     'T'
+            event:     click: @setType
+
+          input
+            className: 'button edit remove'
+            type:      'submit'
+            value:     'X'
+            event:     click: @remove
 
 
 

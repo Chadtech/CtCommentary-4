@@ -1,6 +1,10 @@
 @font-face
   font-family HFNSS
   src url('HFNSS.ttf')
+  
+@font-face
+  font-family HFLLG
+  src url('HFLLG.ttf')
 
 standardSize    = 2em
 biggerSize      = 4em
@@ -26,10 +30,8 @@ red             = #f20723
   
 
 body
-  background  backgroundColor
-  padding     0
-  // padding-left  0
-  // padding-top   1em
+  background    backgroundColor
+  padding       0
   margin        0
 
 .header
@@ -49,6 +51,8 @@ body
   webkit-font-smoothing   none
   -webkit-font-smoothing  none
   margin                  0 
+  &.logic
+    font-family HFLLG
   
 .point-section
   font-family             HFNSS
@@ -65,7 +69,8 @@ body
   webkit-font-smoothing   none
   -webkit-font-smoothing  none
   outline                 none
-
+  &.logic
+    font-family HFLLG
 
 .tracker
   border-color  trackerBorder
@@ -132,30 +137,25 @@ body
 
 
 .container
-  padding 0
-  margin  0
-  box-sizing border-box
-  width 100%
-  // position relative
+  padding     0
+  margin      0
+  box-sizing  border-box
+  width       100%
 
 
 .row  
-  content     ''
-  display     table
-  clear       both
-  width       100%
+  content         ''
+  display         table
+  clear           both
+  width           100%
   &.big
     min-height    3em
  
 
 .column  
   float         left 
-  // margin-right  5px
   position      relative
   width         100%
-  // width         cellWidth
-  // height        14px
-  // &.unlimited
     
   
 
@@ -180,8 +180,6 @@ buttonContent()
   outline                 none
   width                   1em
   height                  1em
-  // top                     0
-  // left                    0
   margin                  0
 
 
@@ -189,14 +187,10 @@ buttonContent()
 
 
   buttonContent()
-  position                absolute
-
-  // top   2em
-  right 0
   background-color            trackerBorder
   &:hover
-    background-color  pointColor
-    border-color      pointColor
+    background-color          pointColor
+    border-color              pointColor
 
   &.critical
     background-color  red
@@ -215,25 +209,25 @@ buttonContent()
     background-color    importantTextD
   
   &.edit
-    // top 0
-      
-    right 0
-    display table
-    // position absolute
-    // right    0
-    // top      0
-    
-  &.add
-    // font-size biggerSize
-    margin-top 1em
-    position relative
+    margin-right  0.25em
+    float         left
+    display       inline
+    &.remove
+      float       right
 
+  &.add
+    margin-top    1em
+    position      relative
+
+.buttons-container
+  width   100%
+  height  3em
+  float   left
 
 .nullButton
   buttonContent()
   position         absolute
   right            0
-  // float            right
   background-color ignorable
   color            trackerBorder
 
@@ -288,13 +282,13 @@ cellContent()
 .cell
   cellContent()
   &:hover
-    border-color     pointColor
+    border-color      pointColor
   &.filled
-    background-color unimportantText
-    color            totalBlack
+    background-color  unimportantText
+    color             totalBlack
   &.big
-    font-size biggerSize
-    width 800px
+    font-size         biggerSize
+    width             800px
 
 
 .cellFilled
