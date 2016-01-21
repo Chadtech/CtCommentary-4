@@ -3,13 +3,13 @@
   src: url("HFNSS.ttf");
 }
 body {
-  background: #080703;
+  background: #000;
   padding: 0;
   margin: 0;
 }
 .header {
   font-family: HFNSS;
-  color: #c6c1a8;
+  color: #c0c0c0;
   font-size: 4em;
   font-smooth: never;
   webkit-font-smoothing: none;
@@ -18,7 +18,7 @@ body {
 }
 .point {
   font-family: HFNSS;
-  color: #c6c1a8;
+  color: #c0c0c0;
   font-size: 2em;
   font-smooth: never;
   webkit-font-smoothing: none;
@@ -27,7 +27,7 @@ body {
 }
 .point-section {
   font-family: HFNSS;
-  color: #c6c1a8;
+  color: #c0c0c0;
   font-size: 2em;
   font-smooth: never;
   webkit-font-smoothing: none;
@@ -122,15 +122,14 @@ body {
   display: table;
   clear: both;
   width: 100%;
-  float: bottom;
 }
 .row.big {
   min-height: 3em;
 }
 .column {
   float: left;
-  margin-right: 5px;
   position: relative;
+  width: 100%;
 }
 .content {
   margin: 0;
@@ -144,7 +143,7 @@ body {
   border-width: 1px;
   border-color: #21211a;
   font-family: HFNSS;
-  color: #060a00;
+  color: #000;
   font-size: 2em;
   font-smooth: never;
   webkit-font-smoothing: none;
@@ -154,39 +153,37 @@ body {
   height: 1em;
   margin: 0;
   position: absolute;
-  top: 2em;
   right: 0;
   background-color: #21211a;
 }
 .button:hover {
-  background-color: #c6c1a8;
-  border-color: #c6c1a8;
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
 }
 .button.critical {
   background-color: #f20723;
 }
 .button.null {
-  background-color: #080703;
+  background-color: #000;
   color: #21211a;
 }
 .button.G {
   background-color: #78dd36;
 }
 .button.G:hover {
-  background-color: #c6c1a8;
-  border-color: #c6c1a8;
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
 }
 .button.D {
   background-color: #ad366c;
 }
 .button.D:hover {
-  background-color: #c6c1a8;
-  border-color: #c6c1a8;
+  background-color: #c0c0c0;
+  border-color: #c0c0c0;
 }
 .button.edit {
-  position: absolute;
   right: 0;
-  top: 0;
+  display: table;
 }
 .button.add {
   margin-top: 1em;
@@ -198,7 +195,7 @@ body {
   border-width: 1px;
   border-color: #21211a;
   font-family: HFNSS;
-  color: #060a00;
+  color: #000;
   font-size: 2em;
   font-smooth: never;
   webkit-font-smoothing: none;
@@ -243,12 +240,12 @@ body {
   left: 0;
   position: absolute;
   margin: 0;
-  background-color: #060a00;
+  background-color: #000;
   border-style: solid;
   border-width: 2px;
   border-color: #21211a;
   font-family: HFNSS;
-  color: #c6c1a8;
+  color: #c0c0c0;
   font-size: 2em;
   font-smooth: never;
   webkit-font-smoothing: none;
@@ -257,11 +254,11 @@ body {
   width: 100%;
 }
 .cell:hover {
-  border-color: #c6c1a8;
+  border-color: #c0c0c0;
 }
 .cell.filled {
   background-color: #969d66;
-  color: #060a00;
+  color: #000;
 }
 .cell.big {
   font-size: 4em;
@@ -272,12 +269,12 @@ body {
   left: 0;
   position: absolute;
   margin: 0;
-  background-color: #060a00;
+  background-color: #000;
   border-style: solid;
   border-width: 2px;
   border-color: #21211a;
   font-family: HFNSS;
-  color: #c6c1a8;
+  color: #c0c0c0;
   font-size: 2em;
   font-smooth: never;
   webkit-font-smoothing: none;
@@ -285,7 +282,7 @@ body {
   outline: none;
   width: 100%;
   background-color: #969d66;
-  color: #060a00;
+  color: #000;
 }
 .TestDiv {
   margin-top: 90px;

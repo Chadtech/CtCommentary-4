@@ -7,7 +7,7 @@ biggerSize      = 4em
 cellWidth       = 50px
 cellHeight      = 19px
 
-pointColor      = #c6c1a8
+pointColor      = #c0c0c0
 unimportantText = #969d66
 
 importantText   = #dd3656
@@ -16,8 +16,10 @@ importantTextD  = #ad366c
 
 ignorable       = #445244
 // backgroundColor = #040a0e
-backgroundColor = #080703
-totalBlack      = #060a00
+// backgroundColor = #080703
+// totalBlack      = #060a00
+backgroundColor = #000000
+totalBlack      = #000000
 trackerBorder   = #21211a
 
 red             = #f20723
@@ -142,18 +144,19 @@ body
   display     table
   clear       both
   width       100%
-  float       bottom
-  // min-height  1em
   &.big
     min-height    3em
  
 
 .column  
   float         left 
-  margin-right  5px
+  // margin-right  5px
   position      relative
+  width         100%
   // width         cellWidth
   // height        14px
+  // &.unlimited
+    
   
 
 .content 
@@ -188,7 +191,7 @@ buttonContent()
   buttonContent()
   position                absolute
 
-  top   2em
+  // top   2em
   right 0
   background-color            trackerBorder
   &:hover
@@ -212,9 +215,13 @@ buttonContent()
     background-color    importantTextD
   
   &.edit
-    position absolute
-    right    0
-    top      0
+    // top 0
+      
+    right 0
+    display table
+    // position absolute
+    // right    0
+    // top      0
     
   &.add
     // font-size biggerSize

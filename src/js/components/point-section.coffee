@@ -1,10 +1,12 @@
 # Libraries
 _        = require 'lodash'
-Himesama = require 'himesama'
+Himesama = require '../himesama'
 { DOM }  = Himesama
 
 # DOM
 { div, input, textarea, p, br } = DOM
+{ row, column, point } = require './ct-dom'
+
 
 
 module.exports = PointSection = Himesama.createClass
@@ -26,10 +28,6 @@ module.exports = PointSection = Himesama.createClass
       type:    type
     @setState paragraphs: paragraphs
 
-  saveOrEdit: -> 
-    { active } = @attributes
-    @setAttr active: not active
-
   render: ->
     { content, active, i } = @attributes
 
@@ -39,7 +37,7 @@ module.exports = PointSection = Himesama.createClass
     buttonAction = @setToEdit
     buttonAction = @setToSave if active
 
-    representationOfContent = 
+    C = 
       if active
         textarea
           className: 'point-section'
@@ -47,31 +45,32 @@ module.exports = PointSection = Himesama.createClass
           content
 
       else
-        _.map (content.split '\n\n'), (paragraph, j) ->
-          if j is 0
-            paragraph = 'nothing.. ' unless paragraph
-            paragraph = '* ' + i + ' ' + paragraph
+        _.flatten _.map (content.split '\n\n'), 
+          (paragraph, j) ->
+            if j is 0
+              paragraph = 'nothing .. ' unless paragraph
+              paragraph = '* ' + i + ' ' + paragraph
 
-          div null,
-            p className: 'point', paragraph
-            br null
+            [
+              p className: 'point', paragraph
+              br null
+            ]
 
-    div 
-      style:
-        position:   'relative'
-        marginLeft: '4em'
-      
-      div 
-        style:
-          width:      '90%'
+    row null,
+      div className: 'column',
 
-        representationOfContent
+        div
+          style: 
+            marginLeft: '2em'
+            width:      '90%'
 
-      input
-        className: 'button edit'
-        type:      'submit'
-        value:     buttonValue
-        event:     click: buttonAction
+          C
+        
+        input
+          className: 'button edit'
+          type:      'submit'
+          value:     buttonValue
+          event:     click: buttonAction
 
 
 

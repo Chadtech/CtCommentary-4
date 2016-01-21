@@ -1,6 +1,6 @@
 # Dependencies
 _        = require 'lodash'
-Himesama = require 'himesama'
+Himesama = require './himesama'
 { DOM }  = Himesama
 
 # DOM
@@ -24,11 +24,10 @@ module.exports = Main = Himesama.createClass
 
   render: ->
 
-
     div className: 'container',
 
       div className: 'row big',
-        Title()
+        Title null
 
       row null, 
         div 
@@ -37,8 +36,8 @@ module.exports = Main = Himesama.createClass
 
       _.map @state.paragraphs, (paragraph, i) =>
 
-        row null,
-          PointSection _.extend paragraph, i: i
+        PointSection (_.extend paragraph, i: i),
+          ['yeeee']
 
 
       row null,
