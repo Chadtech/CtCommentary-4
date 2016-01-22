@@ -280,7 +280,7 @@ body {
 .cell.big {
   border-width: 0px;
   font-size: 4em;
-  width: 800px;
+  width: 100%;
 }
 .cellFilled {
   top: 0;

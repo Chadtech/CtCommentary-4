@@ -25,6 +25,7 @@ module.exports = Main = Himesama.createClass
       type:    'normal'
     @setState paragraphs: paragraphs
 
+
   download: ->
     dialog.showSaveDialog (fn) =>
 
@@ -38,6 +39,28 @@ module.exports = Main = Himesama.createClass
         @state.title + '|||' + @state.date
 
       fs.writeFileSync fn, Paper
+
+
+  open: ->
+    dialog.showOpenDialog (fn) =>
+      return unless fn?
+      fn    = fn[0]
+      fnExt = fn.slice (fn.length - 4)
+      return unless fnExt is '.txt'
+      txt     = fs.readFileSync fn, 'utf-8'
+      txt     = txt.split '|||'
+      title   = txt[0]
+      date    = txt[1]
+      content = txt.slice 2
+      content = _.map content, (p_) ->
+        content: p_.slice 1
+        type:    p_[0]
+
+      @setState 
+        paragraphs: content
+        title:      title
+        date:       date
+
 
   render: ->
 
@@ -74,3 +97,9 @@ module.exports = Main = Himesama.createClass
           type:       'submit'
           value:      'D'  
           event:      click: @download
+
+        input
+          className:  'button add'
+          type:       'submit'
+          value:      'O'  
+          event:      click: @open

@@ -17,6 +17,6 @@ module.exports = Title = Himesama.createClass
   render: ->    
 
     input
-      className: 'cell'
+      className: 'cell big'
       value:     @state.date
       event:     input: @handle
