@@ -184,14 +184,11 @@ buttonContent()
 
 
 .button
-
-
   buttonContent()
   background-color            trackerBorder
   &:hover
     background-color          pointColor
     border-color              pointColor
-
   &.critical
     background-color  red
   &.null
@@ -207,17 +204,16 @@ buttonContent()
       background-color  pointColor
       border-color      pointColor
     background-color    importantTextD
-  
   &.edit
     margin-right  0.25em
     float         left
     display       inline
     &.remove
       float       right
-
   &.add
-    margin-top    1em
+    margin-right  0.25em
     position      relative
+
 
 .buttons-container
   width   100%
@@ -287,6 +283,7 @@ cellContent()
     background-color  unimportantText
     color             totalBlack
   &.big
+    border-width      0px
     font-size         biggerSize
     width             800px
 

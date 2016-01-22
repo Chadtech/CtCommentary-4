@@ -16,6 +16,7 @@ firstParagraph =
 initState 
   paragraphs: [ firstParagraph ]
   title:      ''
+  date:       ''
 
 # Components
 Main = require './main'
