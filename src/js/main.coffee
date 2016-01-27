@@ -38,7 +38,7 @@ module.exports = Main = Himesama.createClass
           paper     += paragraph.content
         @state.title + '|||' + @state.date
 
-      fs.writeFileSync fn, Paper
+      fs.writeFile fn, Paper
 
 
   open: ->

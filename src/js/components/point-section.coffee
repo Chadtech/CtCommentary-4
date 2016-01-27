@@ -79,7 +79,7 @@ module.exports = PointSection = Himesama.createClass
           content
 
       else
-        _.flatten _.map (content.split '\n\n'), 
+        _C = _.flatten _.map (content.split '\n\n'), 
           (paragraph, j) ->
             if j is 0
               paragraph = 'nothing .. ' unless paragraph
@@ -87,10 +87,15 @@ module.exports = PointSection = Himesama.createClass
 
             cl = 'point' + classAd
 
-            [
-              p className: cl, paragraph
+            paragraph = _.map (paragraph.split '\n'),
+              (_p) ->
+                p className: cl, _p
+
+            _.flatten [
+              paragraph
               br null
             ]
+
 
     row null,
       div className: 'column',

@@ -10,12 +10,6 @@
 
   mainWindow = void 0;
 
-  app.on('window-all-closed', function() {
-    if (process.platform !== darwin) {
-      return app.quit();
-    }
-  });
-
   app.on('ready', function() {
     mainWindow = new BrowserWindow({
       width: 800,
